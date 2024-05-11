@@ -12,6 +12,7 @@ config();
 
 const server = express();
 
+// Google Strategy
 passport.use('google', googleStrategy);
 server.use(express.json());
 
@@ -27,15 +28,14 @@ const optionsCors = {
     }
 }
 
-server.use('/', (req,res)=>{
-    res.send('Server Listening');
-})
 
 server.use(cors(optionsCors));
 
-// Google Strategy
 
 
+server.use('/', (req,res)=>{
+    res.send('Server Listening');
+})
 server.use('/auth',authRouter);
 server.use('/authors',authorsRoute);
 server.use('/blogPosts',blogsRoute);
