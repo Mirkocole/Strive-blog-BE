@@ -16,7 +16,7 @@ passport.use('google', googleStrategy);
 server.use(express.json());
 
 server.use(cors({
-    origin : 'http://localhost:3000',
+    origin : 'https://mongo1-c6e3sl0mm-mirko-colellas-projects.vercel.app/',
 }))
 
 // Google Strategy
