@@ -90,7 +90,7 @@ authRouter.get('/googleLogin', passport.authenticate('google',{scope:['profile',
 authRouter.get('/callback', passport.authenticate('google',{session:false}), (req,res,next)=>{
 
     try {
-        res.redirect('http://localhost:3000/profile?accessToken='+req.user.accToken);
+        res.redirect('https://mongo1-sigma.vercel.app/profile?accessToken='+req.user.accToken);
     } catch (error) {
         next(error);
     }
