@@ -27,6 +27,10 @@ const optionsCors = {
     }
 }
 
+server.use('/', (req,res)=>{
+    res.send('Server Listening');
+})
+
 server.use(cors(optionsCors));
 
 // Google Strategy
