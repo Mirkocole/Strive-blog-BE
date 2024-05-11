@@ -17,7 +17,7 @@ passport.use('google', googleStrategy);
 server.use(express.json());
 
 
-const whitelist = ['https://mongo1-alpha.vercel.app/'];
+const whitelist = ['https://mongo1-sigma.vercel.app/'];
 const optionsCors = {
     origin : function(origin,callback) {
         if (!origin || whitelist.some((domain)=> origin.startsWith(domain))) {
