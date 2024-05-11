@@ -15,9 +15,19 @@ const server = express();
 passport.use('google', googleStrategy);
 server.use(express.json());
 
-server.use(cors({
-    origin : 'https://mongo1-c6e3sl0mm-mirko-colellas-projects.vercel.app/',
-}))
+
+const whitelist = ['https://mongo1-alpha.vercel.app/'];
+const optionsCors = {
+    origin : function(origin,callback) {
+        if (!origin || whitelist.some((domain)=> origin.startsWith(domain))) {
+            callback(null,true);
+        } else {
+            callback(new Error('not alloweb by cors'));
+        }
+    }
+}
+
+server.use(cors(optionsCors));
 
 // Google Strategy
 
