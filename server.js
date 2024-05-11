@@ -33,9 +33,6 @@ server.use(cors(optionsCors));
 
 
 
-server.use('/', (req,res)=>{
-    res.send('Server Listening');
-})
 server.use('/auth',authRouter);
 server.use('/authors',authorsRoute);
 server.use('/blogPosts',blogsRoute);
@@ -43,6 +40,9 @@ server.use('/blogPosts',blogsRoute);
 server.use(passport.initialize());
 server.use(passport.session());
 
+server.use('/', (req,res)=>{
+    res.send('Server Listening');
+})
 const initServer = async ()=>{
     try {
         mongoose.connect(process.env.MONGO_URL_REMOTE);
