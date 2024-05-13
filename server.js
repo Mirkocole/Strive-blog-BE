@@ -5,12 +5,18 @@ import cors from 'cors';
 import { authorsRoute } from './routes/authors.route.js';
 import { blogsRoute } from './routes/blogs.route.js';
 import { authRouter } from './routes/auth.route.js';
+import session from 'express-session';
 import passport from 'passport';
 import googleStrategy from './middlewares/passport.js';
 
 config();
 
 const server = express();
+
+server.use(session({
+    secret : 'some secret',
+    saveUninitialized : false
+}));
 
 // Google Strategy
 passport.use('google', googleStrategy);
