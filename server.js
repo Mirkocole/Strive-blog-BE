@@ -24,13 +24,18 @@ server.use(express.json());
 
 
 const whitelist = ['https://striveblog-gamma.vercel.app/'];
-const corsOptions = {
-    origin: 'https://striveblog-gamma.vercel.app/',//(https://your-client-app.com)
-    optionsSuccessStatus: 200,
-  };
+const optionsCors = {
+    origin : function (origin,callback) {
+        if (!origin || whitelist.some((domain)=> origin.startsWith(domain))) {
+            callback(null,true);
+        } else {
+            callback(new Error('not alloweb by cors'));
+        }
+    }
+}
 
 
-server.use(cors(corsOptions));
+server.use(cors());
 
 
 
