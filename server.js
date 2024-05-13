@@ -25,7 +25,7 @@ server.use(express.json());
 
 const whitelist = ['https://striveblog-gamma.vercel.app/'];
 const corsOptions = {
-    origin: 'https://www.nileshblog.tech/',//(https://your-client-app.com)
+    origin: 'https://striveblog-gamma.vercel.app/',//(https://your-client-app.com)
     optionsSuccessStatus: 200,
   };
 
