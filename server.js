@@ -23,7 +23,7 @@ passport.use('google', googleStrategy);
 server.use(express.json());
 
 
-const whitelist = ['https://striveblog-gamma.vercel.app/'];
+const whitelist = ['https://striveblog-gamma.vercel.app/','http://localhost:3000/'];
 const optionsCors = {
     origin : function (origin,callback) {
         if (!origin || whitelist.some((domain)=> origin.startsWith(domain))) {
@@ -35,7 +35,7 @@ const optionsCors = {
 }
 
 
-server.use(cors());
+server.use(cors(optionsCors));
 
 
 

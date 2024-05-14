@@ -65,7 +65,7 @@ authorsRoute.delete('/:id',authMiddleware, async (req, res, next) => {
 });
 
 
-authorsRoute.post('/',authMiddleware, CloudinaryMiddleware, async (req, res, next) => {
+authorsRoute.post('/', CloudinaryMiddleware, async (req, res, next) => {
     try {
         const data = JSON.parse(req.body.data);
         let authors = await Author.create({ ...data, avatar: req.file.path }, {
