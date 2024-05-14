@@ -13,16 +13,6 @@ config();
 
 const server = express();
 
-server.use(session({
-    secret : 'some secret',
-    saveUninitialized : false
-}));
-
-// Google Strategy
-passport.use('google', googleStrategy);
-server.use(express.json());
-
-
 const whitelist = ['https://striveblog-gamma.vercel.app/','http://localhost:3000/'];
 const optionsCors = {
     origin : function (origin,callback) {
@@ -36,6 +26,18 @@ const optionsCors = {
 
 
 server.use(cors());
+
+
+server.use(session({
+    secret : 'some secret',
+    saveUninitialized : false
+}));
+
+// Google Strategy
+passport.use('google', googleStrategy);
+server.use(express.json());
+
+
 
 
 
