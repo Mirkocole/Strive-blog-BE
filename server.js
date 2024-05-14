@@ -35,7 +35,7 @@ const optionsCors = {
 }
 
 
-server.use(cors(optionsCors));
+server.use(cors());
 
 
 
